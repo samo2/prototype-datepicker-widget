@@ -1,3 +1,14 @@
+/**
+ * datePicker widget using Prototype and Scriptaculous.
+ * (c) 2007-2008 Mathieu Jondet <mathieu@eulerian.com>
+ * Eulerian Technologies
+ * (c) 2009 Titi Ala'ilima <tigre@pobox.com>
+ *
+ * DatePicker is freely distributable under the same terms as Prototype.
+ *
+ * v1.0.0
+ */
+
 div.datepicker {
  position: absolute;
  text-align: center;
