@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>DatePicker Test</title>
+<script type="text/javascript" src="/scriptaculous/prototype.js"></script>
+<script type="text/javascript" src="/scriptaculous/scriptaculous.js"></script>
+<script type="text/javascript" src="datepicker.js"></script>
+<link type="text/css" rel="stylesheet" href="datepicker.css" />
+</head>
+<body>
+<input type="text" id="fieldid" name="fieldname" value="" maxlength="10" size="10" />
+
+<script type="text/javascript">
+var dpck_fieldname = new DatePicker({
+	relative:'fieldid',
+	language:'en',
+	showDuration:0.15,
+	closeEffectDuration:0.15,
+	keepFieldEmpty:true,
+	dateFilter:DatePickerUtils.noWeekends().append(DatePickerUtils.noDatesBefore(1.5)).append(DatePickerUtils.noDatesAfter(60))
+});
+</script>
+
+</body>
+</html>

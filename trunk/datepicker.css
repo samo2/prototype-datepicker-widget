@@ -53,19 +53,27 @@ div.datepicker table tbody tr td.today {
  background: #c4d5e3;
 }
 div.datepicker table tbody tr td.nclick,
-div.datepicker table tbody tr td.nclick_outbound {
+div.datepicker table tbody tr td.nclick_outbound,
+div.datepicker table tbody tr td.nclick_today {
  cursor:default; color:#aaa;
 }
 div.datepicker table tbody tr td.nclick_outbound {
  background:#E8E4E4;
 }
+div.datepicker table tbody tr td.nclick_today {
+ background:#c4d5e3;
+}
 div.datepicker table tbody tr td.nclick:hover,
-div.datepicker table tbody tr td.nclick_outbound:hover {
+div.datepicker table tbody tr td.nclick_outbound:hover,
+div.datepicker table tbody tr td.nclick_today:hover {
  border: 1px #eaeaea solid;
  background: #FFF;
 }
 div.datepicker table tbody tr td.nclick_outbound:hover {
  background:#E8E4E4;
+}
+div.datepicker table tbody tr td.nclick_today:hover {
+ background:#c4d5e3;
 }
 div.datepicker table tfoot {
  font-size: 10px;
