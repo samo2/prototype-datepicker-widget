@@ -64,7 +64,7 @@ var DatePickerUtils = {
     return dateObj;
   },
   /**
-   * yeraMonthToAnsiStub takes year and (0-based) month and returns the
+   * yearMonthToAnsiStub takes year and (0-based) month and returns the
    * ANSI date minus the two digit date-of-month, e.g. "2009-03-"
    */
   yearMonthToAnsiStub: function(year, month) {
@@ -413,7 +413,6 @@ DatePicker.prototype	= {
 	'de': [ ["dd", "mm", "yyyy"], "/" ],
 	'pt': [ ["dd", "mm", "yyyy"], "/" ],
 	'hu': [ ["dd", "mm", "yyyy"], "/" ],
-	'lt': [ ["dd", "mm", "yyyy"], "/" ],
 	'nl': [ ["dd", "mm", "yyyy"], "/" ],
 	'dk': [ ["dd", "mm", "yyyy"], "/" ],
 	'no': [ ["dd", "mm", "yyyy"], "/" ],
@@ -441,10 +440,10 @@ DatePicker.prototype	= {
   _bodyAppend		: false,
   /* Effects Adjustment */
   _showEffect		: "appear", 
-  _showDuration		: 1,
+  _showDuration		: 0.2,
   _enableShowEffect 	: true,
   _closeEffect		: "fade", 
-  _closeEffectDuration	: 0.3,
+  _closeEffectDuration	: 0.2,
   _enableCloseEffect 	: true,
   _closeTimer		: null,
   _enableCloseOnBlur	: false,
@@ -522,10 +521,10 @@ DatePicker.prototype	= {
       this._dateFilter = h_p["dateFilter"];
     // Backwards compatibility
     if (!Object.isUndefined(h_p["disablePastDate"]) && h_p["disablePastDate"])
-      this._dateFilter.append(DatePickerFilter.noDatesBefore());
+      this._dateFilter.append(DatePickerFilter.noDatesBefore(0));
     else if (!Object.isUndefined(h_p["disableFutureDate"]) && 
 	!h_p["disableFutureDate"])
-      this._dateFilter.append(DatePickerFilter.noDatesAfter());
+      this._dateFilter.append(DatePickerFilter.noDatesAfter(0));
     this._id_datepicker		= 'datepicker-'+this._relative;
     this._id_datepicker_prev	= this._id_datepicker+'-prev';
     this._id_datepicker_next	= this._id_datepicker+'-next';
