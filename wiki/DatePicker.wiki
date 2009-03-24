@@ -44,5 +44,5 @@ The full list of available configuration parameters is as follows:
 == Deprecated ==
 
 Still supported somewhat for backwards compatibility, though defaults are no longer the same:
-  * disablePastDate - when true, past dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesBefore()" to the existing date filter, if any.
-  * disableFutureDate - when true, future dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesAfter()" to the existing date filter, if any. This takes place after the check on disablePastDate, so if for some reason you set both true, this one will be ignored.
+  * disablePastDate - when true, past dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesBefore(0)" to the existing date filter, if any.
+  * disableFutureDate - when true, future dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesAfter(0)" to the existing date filter, if any. This takes place after the check on disablePastDate, so if for some reason you set both true, this one will be ignored.
