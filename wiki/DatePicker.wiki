@@ -29,10 +29,10 @@ The full list of available configuration parameters is as follows:
   * *relativePosition* _optional_ (default `true`) - whether or not we are positioning relative to the input itself, or relative to its containing positioned element.
   * *showEffect* _optional_ (default `"appear"`) - Scriptaculous effect to use when the popup is shown.
   * *enableShowEffect* _optional_ (default `true`) - whether or not `showEffect` is used.
-  * *showDuration* _optional_ (default 1) - the duration for the `showEffect`.  Most people set this lower, to more like 0.2.
+  * *showDuration* _optional_ (default 0.2) - the duration for the `showEffect`.
   * *closeEffect* _optional_ (default `"fade"`) - Scriptaculous effect to use when the popup is closed.
   * *enableCloseEffect* _optional_ (default `true`) - whether or not `closeEffect` is used.
-  * *closeEffectDuration* _optional_ (default 0.3) - the duration for the `closeEffect`.  Most peolpe set this lower, to more like 0.2.
+  * *closeEffectDuration* _optional_ (default 0.2) - the duration for the `closeEffect`.
   * *afterClose* _optional_ - function to be called after the popup closes.
   * *externalControl* _optional_ - a string holding the id of another element to bind an onclick listener to for opening and closing the popup calendar.
   * *dateFormat* _optional_ - manual control of the date format, requires an array of two elements, the first itself being an array of three elements indicating how to order "dd" "mm" and "yyyy", and the second element being the character to use to separate the three date parts.  For example, standard ANSI/ISO format would be `[ ["yyyy","mm","dd"], "-" ]`.  If this is not specified, a default will be chosen based on the `language` setting.
@@ -40,3 +40,9 @@ The full list of available configuration parameters is as follows:
   * *setPositionLeft* _optional_ (default 0) - if `relativePosition` is false, this is used  as the CSS `left` attribute of the popup.
   * *enableCloseOnBlur* _optional_ (default `false`) - causes the datepicker to close when the form input loses focus.
   * *dateFilter* _optional_ - a DatePickerFilter object that specifies what months and dates to exclude from the datepicker.
+
+== Deprecated ==
+
+Still supported somewhat for backwards compatibility, though defaults are no longer the same:
+  * disablePastDate - when true, past dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesBefore()" to the existing date filter, if any.
+  * disableFutureDate - when true, future dates are not selectable. Since the addition of dateFilter, setting this to true appends "DatePickerUtils.noDatesAfter()" to the existing date filter, if any. This takes place after the check on disablePastDate, so if for some reason you set both true, this one will be ignored.
