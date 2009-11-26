@@ -598,7 +598,9 @@ DatePicker.prototype	= {
     Event.observe($(this._id_datepicker_next), 
 		  'click', this.nextMonth.bindAsEventListener(this), false);
     Event.observe($(this._id_datepicker_ftr), 
-    'click', this.close.bindAsEventListener(this), false);
+		  'click', this.close.bindAsEventListener(this), false);
+    Event.observe($(document), 
+		  'click', this.documentClick.bindAsEventListener(this), false);
   },
   /* hack for buggy form elements layering in IE */
   _wrap_in_iframe	: function ( content ) {
@@ -644,6 +646,9 @@ DatePicker.prototype	= {
    * close	: called when the datepicker is closed
    */
   close		: function () {
+    // ignore requests to close if already closed:
+    if (!this.visible())
+      return;
     this.checkClose();
     if ( this._enableCloseEffect ) {
       switch(this._closeEffect) {
@@ -694,6 +699,15 @@ DatePicker.prototype	= {
       window.clearTimeout(this._closeTimer);
       this._closeTimer = null;
     }
+  },
+   /**
+    * documentClick  : called when user clicked anywhere in the document
+    */
+  documentClick     : function (event) {
+    var source = event.element();
+    if (source != this._div && source != $(this._relative) && source != $(this._externalControl) &&
+	!source.descendantOf(this._div)) 
+      this.close();
   },
   /**
    * setDateFormat
