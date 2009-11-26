@@ -360,7 +360,10 @@ DatePicker.prototype	= {
 	       '7&#32;&#26376;', '8&#32;&#26376;', '9&#32;&#26376;',
 	       '10&#26376;', '11&#26376;', '12&#26376;'],
       'sv' : [ 'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli',
-	       'Augusti', 'September', 'Oktober', 'November', 'December' ]
+	       'Augusti', 'September', 'Oktober', 'November', 'December' ],
+      'pl' : [ 'Stycze\u0144', 'Luty', 'Marzec', 'Kwiecie\u0144', 'Maj',
+               'Czerwiec', 'Lipiec', 'Sierpie\u0144', 'Wrzesie\u0144',		  
+               'Pa\u017adziernik', 'Listopad', 'Grudzie\u0144']
 	}),
   _language_day	: $H({
       'fr'	: [ 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim' ],
@@ -383,7 +386,8 @@ DatePicker.prototype	= {
 		    '&#21608;&#22235;', '&#21608;&#20116;', '&#21608;&#20845;', 
 		    '&#21608;&#26085;' ],
 	'sv'	: [ 'M&#229;n', 'Tis', 'Ons', 'Tor', 'Fre', 'L&#246;r', 
-		    'S&#246;n' ]
+		    'S&#246;n' ],
+        'pl'	: ['Pon', 'Wt', '\u015ar', 'Czw', 'Pt', 'Sob', 'Nie']
 	}),
   _language_close	: $H({
       'fr'	: 'fermer',
@@ -421,7 +425,8 @@ DatePicker.prototype	= {
 	'fi': [ ["dd", "mm", "yyyy"], "/" ],
 	'ro': [ ["dd", "mm", "yyyy"], "/" ],
 	'zh': [ ["yyyy", "mm", "dd"], "-" ],
-	'sv': [ ["dd", "mm", "yyyy"], "/" ]
+	'sv': [ ["dd", "mm", "yyyy"], "/" ],
+        'pl': [ ["yyyy", "mm", "dd"], "-" ]
 	}),
   /* date manipulation */
   _todayDate		: new Date(),
@@ -535,7 +540,7 @@ DatePicker.prototype	= {
       id : this._id_datepicker,
       className : 'datepicker',
       style : 'display: none; z-index:'+this._zindex });
-    this._div.innerHTML = '<table><thead><tr><th width="10px" id="'+this._id_datepicker_prev+'" style="cursor: pointer;">&nbsp;&lt;&lt;&nbsp;</th><th id="'+this._id_datepicker_hdr+'" colspan="5"></th><th width="10px" id="'+this._id_datepicker_next+'" style="cursor: pointer;">&nbsp;&gt;&gt;&nbsp;</th></tr></thead><tbody id="'+this._id_datepicker+'-tbody"></tbody><tfoot><td colspan="7" id="'+this._id_datepicker_ftr+'"></td></tfoot></table>';
+    this._div.innerHTML = '<table><thead><tr><th width="10px" id="'+this._id_datepicker_prev+'" style="cursor: pointer;">&nbsp;&lt;&lt;&nbsp;</th><th id="'+this._id_datepicker_hdr+'" colspan="5"></th><th width="10px" id="'+this._id_datepicker_next+'" style="cursor: pointer;">&nbsp;&gt;&gt;&nbsp;</th></tr></thead><tbody id="'+this._id_datepicker+'-tbody"></tbody><tfoot><tr><td colspan="7" id="'+this._id_datepicker_ftr+'"></td></tr></tfoot></table>';
     /* finally declare the event listener on input field */
     Event.observe(this._relative, 
 		  'click', this.click.bindAsEventListener(this), false);
