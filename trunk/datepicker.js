@@ -397,7 +397,7 @@ DatePicker.prototype	= {
 	'de'	: 'schliessen',
 	'pt'	: 'fim',
 	'hu'	: 'bez&#225;r',
-	'lt'  : 'udaryti',
+	'lt'	: 'u&#382;daryti',
 	'nl'	: 'sluiten',
 	'dk'	: 'luk',
 	'no'	: 'lukk',
