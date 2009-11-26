@@ -545,14 +545,12 @@ DatePicker.prototype	= {
     /* automatically close when blur event is triggered */
     if ( this._enableCloseOnBlur ) {
       Event.observe(this._relative, 'blur', function (e) { 
-		      this._closeTimer = this.close.bind(this).delay(1); 
+		      if (!this._closeTimer) this._closeTimer = this.close.bind(this).delay(1); 
 		    }.bindAsEventListener(this));
       Event.observe(this._div, 'click', function (e) { 
-		      if (this._closeTimer) { 
-			window.clearTimeout(this._closeTimer); 
-			this._closeTimer = null; 
-		      } 
-		    });
+		      Field.focus(this._relative);
+		      this.checkClose.bind(this).delay(0.1);
+		    }.bindAsEventListener(this));
     }
   },
   /**
@@ -642,6 +640,7 @@ DatePicker.prototype	= {
    * close	: called when the datepicker is closed
    */
   close		: function () {
+    this.checkClose();
     if ( this._enableCloseEffect ) {
       switch(this._closeEffect) {
 	case 'puff': 
@@ -681,6 +680,16 @@ DatePicker.prototype	= {
       $(this._id_datepicker).hide();
     }
     eval(this._afterClose());
+  },
+  /**
+   * checkClose	: called to check whether datepicker is set to close when it's clicked (due to enableCloseOnBlur)
+   * Thanks to firetech87
+   */
+  checkClose	: function () {
+    if (this._closeTimer) {
+      window.clearTimeout(this._closeTimer);
+      this._closeTimer = null;
+    }
   },
   /**
    * setDateFormat
