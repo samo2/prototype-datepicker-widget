@@ -86,7 +86,7 @@ div.datepicker table tbody tr td.nclick_outbound:hover {
 div.datepicker table tbody tr td.nclick_today:hover {
  background:#c4d5e3;
 }
-div.datepicker table tfoot {
+div.datepicker table tfoot tr td {
  font-size: 10px;
  background: #e9eff4;
  border-top:1px solid #c4d5e3;
