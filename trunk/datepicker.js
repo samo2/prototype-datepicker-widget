@@ -422,7 +422,7 @@ DatePicker.prototype	= {
 	'no': [ ["dd", "mm", "yyyy"], "/" ],
 	'lv': [ ["dd", "mm", "yyyy"], "/" ],
 	'ja': [ ["yyyy", "mm", "dd"], "-" ],
-	'fi': [ ["dd", "mm", "yyyy"], "/" ],
+	'fi': [ ["dd", "mm", "yyyy"], "." ],
 	'ro': [ ["dd", "mm", "yyyy"], "/" ],
 	'zh': [ ["yyyy", "mm", "dd"], "-" ],
 	'sv': [ ["dd", "mm", "yyyy"], "/" ],
