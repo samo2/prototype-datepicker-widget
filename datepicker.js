@@ -521,10 +521,9 @@ DatePicker.prototype	= {
       this._dateFilter = h_p["dateFilter"];
     // Backwards compatibility
     if (!Object.isUndefined(h_p["disablePastDate"]) && h_p["disablePastDate"])
-      this._dateFilter.append(DatePickerFilter.noDatesBefore(0));
-    else if (!Object.isUndefined(h_p["disableFutureDate"]) && 
-	!h_p["disableFutureDate"])
-      this._dateFilter.append(DatePickerFilter.noDatesAfter(0));
+      this._dateFilter.append(DatePickerUtils.noDatesBefore(0));
+    else if (!Object.isUndefined(h_p["disableFutureDate"]) && h_p["disableFutureDate"])
+      this._dateFilter.append(DatePickerUtils.noDatesAfter(0));
     this._id_datepicker		= 'datepicker-'+this._relative;
     this._id_datepicker_prev	= this._id_datepicker+'-prev';
     this._id_datepicker_next	= this._id_datepicker+'-next';
@@ -615,7 +614,7 @@ DatePicker.prototype	= {
     if ( $(this._id_datepicker) == null ) this.load();
     if (!this._isPositionned && this._relativePosition) {
       /* position the datepicker relatively to element */
-      var a_lt = Element.positionedOffset($(this._relative));
+      var a_lt = Element.cumulativeOffset($(this._relative));
       $(this._id_datepicker).setStyle({
 	  'left'	: Number(a_lt[0]+this._leftOffset)+'px',
 	    'top'	: Number(a_lt[1]+this._topOffset)+'px'
