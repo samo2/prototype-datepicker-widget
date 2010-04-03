@@ -406,7 +406,8 @@ DatePicker.prototype	= {
 	'fi'	: 'sulje',
 	'ro'	: 'inchide',
 	'zh'	: '&#20851;&#32;&#38381',
-	'sv'	: 'st&#228;ng'
+	'sv'	: 'st&#228;ng',
+	'pl'	: 'zamknij'
 	}),
   _language_date_format : $H({
       'en': [ ["mm", "dd", "yyyy"], "/" ],
