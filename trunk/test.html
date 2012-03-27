@@ -4,6 +4,8 @@
 <script type="text/javascript" src="/scriptaculous/prototype.js"></script>
 <script type="text/javascript" src="/scriptaculous/scriptaculous.js"></script>
 <script type="text/javascript" src="datepicker.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="google-calendar-filter.js"></script>
 <link type="text/css" rel="stylesheet" href="datepicker.css" />
 </head>
 <body>
@@ -13,9 +15,9 @@
 var dpck_fieldname = new DatePicker({
 	relative:'fieldid',
 	keepFieldEmpty:true,
-	dateFilter:DatePickerUtils.noWeekends().append(DatePickerUtils.noDatesBefore(1.5)).append(DatePickerUtils.noDatesAfter(60))
+	dateFilter:DatePickerUtils.noWeekends().append(DatePickerUtils.noDatesBefore(1.5)).append(DatePickerUtils.noDatesAfter(240)),
 });
+dpck_fieldname._dateFilter.append(new GoogleDatePickerFilter(dpck_fieldname, 'usa@holiday.calendar.google.com'));
 </script>
-
 </body>
 </html>
