@@ -2,7 +2,7 @@
  * DatePicker widget using Prototype and Scriptaculous.
  * (c) 2007-2008 Mathieu Jondet <mathieu@eulerian.com>
  * Eulerian Technologies
- * (c) 2009 Titi Ala'ilima <tigre@pobox.com>
+ * (c) 2009-2010 Titi Ala'ilima <tigre@pobox.com>
  *
  * DatePicker is freely distributable under the same terms as Prototype.
  *
@@ -441,6 +441,7 @@ DatePicker.prototype	= {
   _leftOffset		: 0,
   _isPositionned		: false,
   _relativePosition 	: true,
+  _relativeAppend 	: false,
   _setPositionTop 	: 0,
   _setPositionLeft	: 0,
   _bodyAppend		: false,
@@ -484,43 +485,15 @@ DatePicker.prototype	= {
   initialize	: function ( h_p ) {
     /* arguments */
     this._relative= h_p["relative"];
-    if (h_p["language"])
-      this._language = h_p["language"];
     this._zindex	= ( h_p["zindex"] ) ? parseInt(Number(h_p["zindex"])) : 1;
-    if (!Object.isUndefined(h_p["keepFieldEmpty"]))
-      this._keepFieldEmpty	= h_p["keepFieldEmpty"];
-    if (Object.isFunction(h_p["clickCallback"])) 
-      this._clickCallback	= h_p["clickCallback"];
     if (!Object.isUndefined(h_p["leftOffset"]))
       this._leftOffset	= parseInt(h_p["leftOffset"]);
     if (!Object.isUndefined(h_p["topOffset"]))
       this._topOffset	= parseInt(h_p["topOffset"]);
-    if (!Object.isUndefined(h_p["relativePosition"]))
-      this._relativePosition = h_p["relativePosition"];
-    if (!Object.isUndefined(h_p["showEffect"]))
-      this._showEffect 	= h_p["showEffect"];
-    if (!Object.isUndefined(h_p["enableShowEffect"]))
-      this._enableShowEffect	= h_p["enableShowEffect"];
-    if (!Object.isUndefined(h_p["showDuration"]))
-      this._showDuration 	= h_p["showDuration"];
-    if (!Object.isUndefined(h_p["closeEffect"]))
-      this._closeEffect 	= h_p["closeEffect"];
-    if (!Object.isUndefined(h_p["enableCloseEffect"]))
-      this._enableCloseEffect	= h_p["enableCloseEffect"];
-    if (!Object.isUndefined(h_p["closeEffectDuration"]))
-      this._closeEffectDuration = h_p["closeEffectDuration"];
-    if (Object.isFunction(h_p["afterClose"]))
-      this._afterClose	= h_p["afterClose"];
-    if (!Object.isUndefined(h_p["externalControl"]))
-      this._externalControl= h_p["externalControl"];
-    if (!Object.isUndefined(h_p["dateFormat"])) 
-      this._dateFormat	= h_p["dateFormat"];
-    if (Object.isFunction(h_p["cellCallback"]))
-      this._cellCallback	= h_p["cellCallback"];
-    this._setPositionTop	= ( h_p["setPositionTop"] ) ? 
-    parseInt(Number(h_p["setPositionTop"])) : 0;
-    this._setPositionLeft	= ( h_p["setPositionLeft"] ) ? 
-    parseInt(Number(h_p["setPositionLeft"])) : 0;
+    ["language","keepFieldEmpty","clickCallback","relativePosition","relativeAppend","showEffect","enableShowEffect","showDuration",
+     "closeEffect","enableCloseEffect","closeEffectDuration","afterClose","externalControl","dateFormat","cellCallback"].each(function(name,index) { if (!Object.isUndefined(h_p[name])) this['_'+name] = h_p[name]; });
+    this._setPositionTop	= ( h_p["setPositionTop"] ) ? parseInt(Number(h_p["setPositionTop"])) : 0;
+    this._setPositionLeft	= ( h_p["setPositionLeft"] ) ? parseInt(Number(h_p["setPositionLeft"])) : 0;
     if (!Object.isUndefined(h_p["enableCloseOnBlur"]) && h_p["enableCloseOnBlur"])
       this._enableCloseOnBlur	= true;
     if (!Object.isUndefined(h_p["dateFilter"]) && h_p["dateFilter"])
